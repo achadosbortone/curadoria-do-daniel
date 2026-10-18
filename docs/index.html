@@ -27,8 +27,8 @@
   .grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));grid-auto-rows:1fr}
   @media (max-width:520px){.grid{grid-template-columns:repeat(2,1fr);gap:10px}}
   .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;height:100%}
-  .img{aspect-ratio:4/3;background:#eceef2;display:flex;align-items:center;justify-content:center;position:relative}
-  .img img{max-width:88%;max-height:88%;object-fit:contain}
+  .img{aspect-ratio:4/3;background:#eceef2;position:relative;overflow:hidden;flex:0 0 auto}
+  .img img{position:absolute;inset:0;width:100%;height:100%;padding:8px;object-fit:contain}
   .off{position:absolute;top:10px;left:10px;background:var(--hot);color:#fff;font-weight:700;font-size:.8rem;padding:3px 8px;border-radius:6px}
   .body{padding:10px 12px 12px;display:flex;flex-direction:column;gap:4px;flex:1}
   .title{font-size:.85rem;line-height:1.3;height:calc(1.3em * 2);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
@@ -51,7 +51,7 @@
   <h1>Curadoria do Daniel</h1>
   <p class="sub">Equipamentos de som, transmissão e notebooks para eventos e igrejas: marcas de confiança, lojas qualificadas e o menor preço do Mercado Livre. Atualizado todos os dias.</p>
   <p class="crit">Ordem da lista: qualidade do produto · reputação da loja · menor preço</p>
-  <span class="stamp">Atualizado em 18/10/2026 às 16:21</span>
+  <span class="stamp">Atualizado em 18/10/2026 às 17:16</span>
 </header>
 <nav><div class="tabs" id="tabs">
   <button class="tab" data-cat="todas" aria-pressed="true">Todas</button>
