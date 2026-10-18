@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITULO}}</title>
+<meta name="description" content="{{DESCRICAO}}">
+<style>
+  :root{
+    color-scheme:dark;
+    --bg:#0a0c10; --card:#12151b; --ink:#eef0f4; --muted:#8d96a5; --line:#222732;
+    --accent:#f2b134; --accent-ink:#1a1305; --hot:#ff5470; --ok:#3ddc97;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+  header{padding:40px 16px 24px;max-width:1100px;margin:0 auto}
+  h1{margin:0 0 8px;font-size:clamp(1.6rem,4vw,2.4rem);line-height:1.15}
+  .sub{margin:0 0 12px;color:var(--muted);max-width:60ch}
+  .stamp{display:inline-block;font-size:.85rem;color:var(--ok);font-weight:600}
+  nav{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+  .tabs{max-width:1100px;margin:0 auto;padding:10px 16px;display:flex;gap:8px;overflow-x:auto}
+  .tab{flex:0 0 auto;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:8px 14px;border-radius:999px;font:inherit;font-size:.9rem;cursor:pointer}
+  .tab[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+  main{max-width:1100px;margin:0 auto;padding:8px 16px 48px}
+  section{margin-top:32px}
+  h2{font-size:1.3rem;margin:0 0 14px}
+  .grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+  .img{aspect-ratio:1/1;background:#eceef2;display:flex;align-items:center;justify-content:center;position:relative}
+  .img img{max-width:88%;max-height:88%;object-fit:contain}
+  .off{position:absolute;top:10px;left:10px;background:var(--hot);color:#fff;font-weight:700;font-size:.8rem;padding:3px 8px;border-radius:6px}
+  .body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:6px;flex:1}
+  .title{font-size:.93rem;line-height:1.35;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .old{color:var(--muted);text-decoration:line-through;font-size:.85rem}
+  .price{font-size:1.4rem;font-weight:700}
+  .tags{display:flex;gap:6px;flex-wrap:wrap}
+  .tag{font-size:.72rem;border:1px solid var(--line);color:var(--muted);padding:2px 7px;border-radius:999px}
+  .tag.ok{color:var(--ok);border-color:var(--ok)}
+  .tag.star{color:var(--accent);border-color:var(--accent)}
+  .crit{margin:0 0 12px;font-size:.85rem;color:var(--accent);letter-spacing:.02em}
+  .btn{margin-top:auto;display:block;text-align:center;background:var(--accent);color:var(--accent-ink);text-decoration:none;font-weight:600;padding:10px 12px;border-radius:10px}
+  .btn:hover{filter:brightness(1.08)}
+  .empty{color:var(--muted);padding:16px;border:1px dashed var(--line);border-radius:12px}
+  footer{max-width:1100px;margin:0 auto;padding:24px 16px 48px;color:var(--muted);font-size:.82rem;border-top:1px solid var(--line)}
+  [hidden]{display:none!important}
+</style>
+</head>
+<body>
+<header>
+  <h1>{{TITULO}}</h1>
+  <p class="sub">{{SUBTITULO}}</p>
+  <p class="crit">Ordem da lista: qualidade do produto · reputação da loja · menor preço</p>
+  <span class="stamp">Atualizado em {{ATUALIZADO}}</span>
+</header>
+<nav><div class="tabs" id="tabs">
+  <button class="tab" data-cat="todas" aria-pressed="true">Todas</button>
+{{ABAS}}
+</div></nav>
+<main>
+{{SECOES}}
+</main>
+<footer>
+  Como participante do programa de afiliados do Mercado Livre, este site pode receber comissão por compras feitas pelos links, sem custo adicional para você. Preços, estoque e condições são do Mercado Livre e podem mudar a qualquer momento; confira sempre na página do produto antes de comprar.
+</footer>
+<script>
+  var tabs = document.getElementById('tabs');
+  tabs.addEventListener('click', function(e){
+    var b = e.target.closest('.tab'); if(!b) return;
+    var cat = b.getAttribute('data-cat');
+    tabs.querySelectorAll('.tab').forEach(function(t){ t.setAttribute('aria-pressed', t===b ? 'true':'false'); });
+    document.querySelectorAll('main section').forEach(function(s){
+      s.hidden = !(cat==='todas' || s.getAttribute('data-cat')===cat);
+    });
+  });
+</script>
+</body>
+</html>
