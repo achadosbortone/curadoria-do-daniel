@@ -1,0 +1,31 @@
+name: Atualizar promoções
+
+on:
+  schedule:
+    - cron: "0 9 * * *"   # todo dia às 06:00 (horário de Brasília)
+  workflow_dispatch:       # botão "Run workflow" para atualizar na hora
+
+permissions:
+  contents: write
+
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Gerar site
+        env:
+          ML_CLIENT_ID: ${{ secrets.ML_CLIENT_ID }}
+          ML_CLIENT_SECRET: ${{ secrets.ML_CLIENT_SECRET }}
+          ML_MATT_TOOL: ${{ secrets.ML_MATT_TOOL }}
+          ML_MATT_WORD: ${{ secrets.ML_MATT_WORD }}
+        run: python gerar_site.py
+      - name: Publicar alterações
+        run: |
+          git config user.name "atualizador"
+          git config user.email "atualizador@users.noreply.github.com"
+          git add docs
+          git diff --cached --quiet || (git commit -m "Atualização diária" && git push)
