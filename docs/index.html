@@ -4,55 +4,249 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Curadoria do Daniel</title>
-<meta name="description" content="Equipamentos de som, transmissão e notebooks para eventos e igrejas: só produtos bem avaliados, de lojas qualificadas, com o menor preço do Mercado Livre. Atualizado todos os dias.">
+<meta name="description" content="Equipamentos de som, transmissão e notebooks para eventos e igrejas: marcas de confiança, lojas qualificadas e o menor preço do Mercado Livre. Atualizado todos os dias.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap" rel="stylesheet">
 <style>
   :root{
     color-scheme:dark;
-    --bg:#0a0c10; --card:#12151b; --ink:#eef0f4; --muted:#8d96a5; --line:#222732;
-    --accent:#f2b134; --accent-ink:#1a1305; --hot:#ff5470; --ok:#3ddc97;
+    --bg:#0b0d10; --bg2:#0e1116; --card:#12151b; --ink:#eef0f4; --muted:#9aa3b2; --line:#232833;
+    --accent:#ff9d1c; --accent-ink:#1a1004; --hot:#ff5470; --ok:#3ddc97; --frame:#eceef2;
+    --hand:'Caveat','Segoe Script','Bradley Hand',cursive;
   }
   *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
   body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
-  header{padding:40px 16px 24px;max-width:1100px;margin:0 auto}
-  h1{margin:0 0 8px;font-size:clamp(1.6rem,4vw,2.4rem);line-height:1.15}
-  .sub{margin:0 0 12px;color:var(--muted);max-width:60ch}
-  .stamp{display:inline-block;font-size:.85rem;color:var(--ok);font-weight:600}
-  nav{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+  a{color:inherit}
+  svg{display:block}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+  .ico{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+
+  /* ---------- topo ---------- */
+  .top{background:var(--bg);border-bottom:1px solid var(--line)}
+  .top .wrap{display:flex;align-items:center;gap:20px;min-height:76px}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex:0 0 auto}
+  .brand svg{width:44px;height:44px}
+  .brand b{display:block;font-size:.8rem;letter-spacing:.12em;line-height:1.1;font-weight:600}
+  .brand span{display:block;font-size:1.6rem;letter-spacing:.04em;line-height:1;font-weight:800}
+  .menu{display:flex;gap:28px;margin:0 auto;font-size:.92rem}
+  .menu a{text-decoration:none;padding:6px 0;border-bottom:2px solid transparent}
+  .menu a:first-child{border-color:var(--accent)}
+  .menu a:hover{color:var(--accent)}
+  .acoes{display:flex;align-items:center;gap:14px;margin-left:auto}
+  .icobtn{background:none;border:0;color:var(--ink);cursor:pointer;padding:6px;border-radius:8px}
+  .icobtn:hover{color:var(--accent)}
+  .ghost{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--accent);color:var(--accent);text-decoration:none;padding:9px 16px;border-radius:10px;font-size:.85rem;white-space:nowrap}
+  .ghost:hover{background:rgba(255,157,28,.1)}
+  .ghost .ico{width:14px;height:14px}
+  .busca{display:none;border-top:1px solid var(--line);background:var(--bg2)}
+  .busca.on{display:block}
+  .busca input{width:100%;max-width:520px;margin:12px 0;padding:11px 14px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit}
+  .busca input:focus{outline:2px solid var(--accent);border-color:transparent}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;overflow:hidden;
+    background:
+      radial-gradient(55% 75% at 78% 12%,rgba(70,100,175,.30),transparent 62%),
+      radial-gradient(35% 55% at 98% 75%,rgba(255,157,28,.16),transparent 70%),
+      radial-gradient(40% 50% at 55% 0%,rgba(120,140,200,.10),transparent 70%),
+      linear-gradient(#0d1016,#0b0d10)}
+  .hero .wrap{position:relative;display:grid;grid-template-columns:1fr 1.1fr;align-items:end;min-height:440px}
+  .hero-txt{padding:56px 0 48px;align-self:center}
+  .eyebrow{display:flex;align-items:center;gap:10px;margin:0 0 18px;color:var(--accent);font-size:.78rem;letter-spacing:.16em;font-weight:600}
+  .eyebrow:before{content:"";width:2px;height:14px;background:var(--accent)}
+  h1{margin:0 0 18px;font-size:clamp(1.9rem,4.2vw,2.7rem);line-height:1.14;font-weight:700;letter-spacing:-.01em;max-width:15em}
+  h1 em{font-style:normal;color:var(--accent);display:block}
+  .lead{margin:0 0 22px;color:#d4d9e2;max-width:34em}
+  .pills{display:flex;flex-wrap:wrap;gap:22px;margin:0 0 26px;padding:0;list-style:none}
+  .pills li{display:flex;align-items:center;gap:10px;font-size:.8rem;line-height:1.25;color:#d4d9e2;max-width:9em}
+  .pills .ico{width:26px;height:26px;color:var(--accent);flex:0 0 auto}
+  .cta{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:var(--accent-ink);text-decoration:none;font-weight:700;padding:13px 22px;border-radius:10px}
+  .cta:hover{filter:brightness(1.08)}
+  .cta .ico{width:18px;height:18px}
+  .hero-img{height:440px;overflow:hidden;display:flex;justify-content:flex-start;align-items:flex-start;position:relative}
+  .hero-img img{width:min(400px,72%);height:auto;display:block;margin-left:6%}
+  .hello{position:absolute;right:4px;top:70px;margin:0;font:600 1.45rem/1.15 var(--hand);color:#f1f3f7;transform:rotate(-7deg);text-align:left}
+  .hello:after{content:"";display:block;width:110px;height:2px;margin-top:8px;background:var(--accent);transform:rotate(-4deg);border-radius:2px}
+  .hero:after{content:"";position:absolute;left:0;right:0;bottom:0;height:60px;background:linear-gradient(transparent,var(--bg));pointer-events:none}
+
+  /* ---------- seções ---------- */
+  .sec{padding:52px 0 8px}
+  .eyebrow.sm{font-size:.72rem;margin:0 0 8px}
+  h2{font-size:clamp(1.4rem,3vw,1.9rem);margin:0 0 6px;line-height:1.2}
+  .sub{margin:0 0 24px;color:var(--muted)}
+
+  .cats{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(190px,1fr))}
+  .cat{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;text-decoration:none;transition:border-color .15s,transform .15s}
+  .cat:hover{border-color:var(--accent);transform:translateY(-2px)}
+  .cat-img{aspect-ratio:16/10;background:linear-gradient(135deg,#1a2030,#0f131b);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;color:rgba(255,157,28,.35)}
+  .cat-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .cat-img img+.ico{display:none}
+  .cat-img .ico{width:64px;height:64px;stroke-width:1.2}
+  .cat-info{padding:12px 14px 14px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .cat-info .ico{color:var(--accent)}
+  .cat-info b{font-size:.92rem;line-height:1.3;font-weight:600;min-height:2.6em}
+  .cat-info .ico.go{color:var(--ink);width:24px;margin-top:auto}
+
+  /* ---------- produtos ---------- */
+  nav.tabsbar{position:sticky;top:0;z-index:5;background:rgba(11,13,16,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(6px);margin-top:20px}
   .tabs{max-width:1100px;margin:0 auto;padding:10px 16px;display:flex;gap:8px;overflow-x:auto}
-  .tab{flex:0 0 auto;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:8px 14px;border-radius:999px;font:inherit;font-size:.9rem;cursor:pointer}
-  .tab[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
-  main{max-width:1100px;margin:0 auto;padding:8px 16px 48px}
-  section{margin-top:32px}
-  h2{font-size:1.3rem;margin:0 0 14px}
-  .grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
-  .img{aspect-ratio:1/1;background:#eceef2;display:flex;align-items:center;justify-content:center;position:relative}
-  .img img{max-width:88%;max-height:88%;object-fit:contain}
-  .off{position:absolute;top:10px;left:10px;background:var(--hot);color:#fff;font-weight:700;font-size:.8rem;padding:3px 8px;border-radius:6px}
-  .body{padding:12px 14px 14px;display:flex;flex-direction:column;gap:6px;flex:1}
-  .title{font-size:.93rem;line-height:1.35;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-  .old{color:var(--muted);text-decoration:line-through;font-size:.85rem}
-  .price{font-size:1.4rem;font-weight:700}
-  .tags{display:flex;gap:6px;flex-wrap:wrap}
-  .tag{font-size:.72rem;border:1px solid var(--line);color:var(--muted);padding:2px 7px;border-radius:999px}
+  .tab{flex:0 0 auto;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:8px 14px;border-radius:999px;font:inherit;font-size:.88rem;cursor:pointer}
+  .tab:hover{border-color:var(--accent)}
+  .tab[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:600}
+  main{max-width:1100px;margin:0 auto;padding:8px 16px 40px}
+  main section{margin-top:32px}
+  main h3{font-size:1.25rem;margin:0 0 14px}
+  .grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));grid-auto-rows:1fr}
+  @media (max-width:520px){.grid{grid-template-columns:repeat(2,1fr);gap:10px}.cats{grid-template-columns:repeat(2,1fr);gap:10px}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;height:100%}
+  .card:hover{border-color:#3a4150}
+  .img{aspect-ratio:4/3;background:var(--frame);position:relative;overflow:hidden;flex:0 0 auto}
+  .img img{position:absolute;inset:0;width:100%;height:100%;padding:8px;object-fit:contain}
+  .off{position:absolute;top:10px;left:10px;z-index:1;background:var(--hot);color:#fff;font-weight:700;font-size:.8rem;padding:3px 8px;border-radius:6px}
+  .body{padding:10px 12px 12px;display:flex;flex-direction:column;gap:4px;flex:1}
+  .title{font-size:.85rem;line-height:1.3;height:calc(1.3em * 2);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .old{color:var(--muted);text-decoration:line-through;font-size:.85rem;min-height:1.3em}
+  .price{font-size:1.2rem;font-weight:700}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;align-content:flex-start;height:3rem;overflow:hidden}
+  .tag{font-size:.68rem;border:1px solid var(--line);color:var(--muted);padding:2px 7px;border-radius:999px}
   .tag.ok{color:var(--ok);border-color:var(--ok)}
   .tag.star{color:var(--accent);border-color:var(--accent)}
-  .crit{margin:0 0 12px;font-size:.85rem;color:var(--accent);letter-spacing:.02em}
-  .btn{margin-top:auto;display:block;text-align:center;background:var(--accent);color:var(--accent-ink);text-decoration:none;font-weight:600;padding:10px 12px;border-radius:10px}
+  .crit{margin:6px 0 0;font-size:.82rem;color:var(--muted)}
+  .stamp{color:var(--ok);font-weight:600;font-size:.85rem}
+  .btn{margin-top:auto;display:block;text-align:center;background:var(--accent);color:var(--accent-ink);text-decoration:none;font-weight:600;padding:8px 10px;border-radius:10px;font-size:.9rem}
   .btn:hover{filter:brightness(1.08)}
   .empty{color:var(--muted);padding:16px;border:1px dashed var(--line);border-radius:12px}
-  footer{max-width:1100px;margin:0 auto;padding:24px 16px 48px;color:var(--muted);font-size:.82rem;border-top:1px solid var(--line)}
+  .nada{display:none;color:var(--muted);padding:24px 0}
+
+  /* ---------- contato ---------- */
+  .contato{margin-top:30px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:
+    radial-gradient(40% 120% at 8% 50%,rgba(255,157,28,.10),transparent 70%),var(--bg2)}
+  .contato .wrap{display:flex;align-items:center;gap:26px;flex-wrap:wrap;padding-top:26px;padding-bottom:26px}
+  .c-txt{flex:1 1 260px;border-left:2px solid var(--accent);padding-left:16px}
+  .c-txt b{display:block;font-size:1.1rem}
+  .c-txt p{margin:4px 0 0;color:var(--muted);font-size:.9rem}
+  .c-txt .ghost{margin-top:12px;padding:10px 18px;font-size:.92rem}
+  .c-txt .ghost .ico{width:18px;height:18px}
+  .c-itens{display:flex;gap:26px;flex:2 1 360px;justify-content:space-around;flex-wrap:wrap}
+  .c-itens div{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;font-size:.8rem;color:#d4d9e2;max-width:9em}
+  .c-itens .ico{width:30px;height:30px;color:var(--accent)}
+  .assina{font:600 2.1rem/1 var(--hand);color:var(--ink);position:relative;padding-bottom:10px;flex:0 0 auto}
+  .assina:after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--accent);transform:rotate(-4deg);border-radius:2px}
+
+  footer{max-width:1100px;margin:0 auto;padding:26px 16px 48px;color:var(--muted);font-size:.82rem}
+  .rodape{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-bottom:18px;color:var(--ink)}
+  .rodape .brand svg{width:36px;height:36px}
+  .rodape .brand span{font-size:1.25rem}
+  .rodape p{margin:0;flex:1 1 280px;color:var(--muted);text-align:center;font-size:.8rem}
+  .aviso{border-top:1px solid var(--line);padding-top:16px;margin:0}
   [hidden]{display:none!important}
+
+  @media (max-width:560px){
+    .top .wrap{gap:10px;min-height:64px}
+    .brand svg{width:36px;height:36px}
+    .brand span{font-size:1.3rem}
+    .acoes{gap:4px}
+    .ghost.ml{padding:7px 10px;font-size:.78rem}
+    .ghost.ml .ver{display:none}
+  }
+  @media (max-width:820px){
+    .menu{display:none}
+    .hero .wrap{grid-template-columns:1fr;min-height:0}
+    .hero-txt{padding:36px 0 10px}
+    .hero-img{height:360px;justify-content:center}
+    .hero-img img{width:min(360px,88%);margin-left:0}
+    .hello{right:auto;left:2px;top:6px;font-size:1.02rem}
+    .assina{display:none}
+  }
 </style>
 </head>
 <body>
-<header>
-  <h1>Curadoria do Daniel</h1>
-  <p class="sub">Equipamentos de som, transmissão e notebooks para eventos e igrejas: só produtos bem avaliados, de lojas qualificadas, com o menor preço do Mercado Livre. Atualizado todos os dias.</p>
-  <p class="crit">Ordem da lista: qualidade do produto · reputação da loja · menor preço</p>
-  <span class="stamp">Atualizado em 20/10/2026 às 06:21</span>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.9L12 16.9 6.8 19.7l1-5.9L3.5 9.7l5.9-.8z"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M3 7h11v8H3z"/><path d="M14 10h4l3 3v2h-7"/><circle cx="7" cy="17" r="1.6"/><circle cx="17" cy="17" r="1.6"/></symbol>
+  <symbol id="i-cart" viewBox="0 0 24 24"><path d="M3 4h2.5l2 10h9.5l2-7H6.5"/><circle cx="9" cy="19" r="1.4"/><circle cx="16" cy="19" r="1.4"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24"><path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M18 14v5H5V6h5"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16"/><path d="M14 6l6 6-6 6"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8.5 10.5h.01M12 10.5h.01M15.5 10.5h.01"/></symbol>
+  <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M14 4c3 0 6 3 6 6-2.5 3.5-5 5-8 6l-4-4c1-3 2.5-5.5 6-8z"/><circle cx="14.5" cy="9.5" r="1.4"/><path d="M8 14c-2 .5-3 2-3.5 5 3-.5 4.5-1.5 5-3.5"/></symbol>
+  <symbol id="i-mixer" viewBox="0 0 24 24"><path d="M6 4v16M12 4v16M18 4v16"/><rect x="4" y="13" width="4" height="3" rx="1"/><rect x="10" y="7" width="4" height="3" rx="1"/><rect x="16" y="11" width="4" height="3" rx="1"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0013 0"/><path d="M12 17.5V21M9 21h6"/></symbol>
+  <symbol id="i-speaker" viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="18" rx="2"/><circle cx="12" cy="9" r="1.6"/><circle cx="12" cy="15.5" r="3"/></symbol>
+  <symbol id="i-video" viewBox="0 0 24 24"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10.5l5-3v9l-5-3z"/></symbol>
+  <symbol id="i-laptop" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="10" rx="1.5"/><path d="M3 19h18l-1.5-4h-15z"/></symbol>
+  <symbol id="i-cable" viewBox="0 0 24 24"><path d="M8 3v5M12 3v5M6.5 8h7v3a3.5 3.5 0 01-7 0z"/><path d="M10 14.5V17a3 3 0 003 3h4"/></symbol>
+  <symbol id="i-whats" viewBox="0 0 24 24"><path d="M4 20l1.2-4.2A8 8 0 1 1 8.3 18.8z"/><path d="M9 8.6c.3 3 2.7 5.6 6 6.6l1.3-1.3-2.2-1.2-.9.8c-1-.4-1.9-1.3-2.3-2.3l.8-.9-1.1-2.2z"/></symbol>
+  <symbol id="i-logo" viewBox="0 0 48 48"><path d="M8 6h14c11 0 18 8 18 18s-7 18-18 18H8z" fill="none" stroke="#ff9d1c" stroke-width="5" stroke-linejoin="round"/><path d="M17 17v14M24 13v22M31 19v10" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="Curadoria do Daniel">
+      <svg><use href="#i-logo"/></svg>
+      <div><b>CURADORIA DO</b><span>DANIEL</span></div>
+    </a>
+    <nav class="menu" aria-label="Principal">
+      <a href="#inicio">Início</a>
+      <a href="#categorias">Categorias</a>
+      <a href="#achados">Achados</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <div class="acoes">
+      <button class="icobtn" id="abrir-busca" aria-label="Buscar produtos"><svg class="ico"><use href="#i-search"/></svg></button>
+      <a class="ghost ml" href="https://www.mercadolivre.com.br/social/bomi1092351?matt_word=especial&amp;matt_tool=22937192" target="_blank" rel="noopener"><span><span class="ver">Ver no </span>Mercado Livre</span> <svg class="ico"><use href="#i-ext"/></svg></a>
+    </div>
+  </div>
+  <div class="busca" id="busca"><div class="wrap"><input id="q" type="search" placeholder="Buscar produto (ex.: Shure, mesa de som, webcam)" autocomplete="off"></div></div>
 </header>
-<nav><div class="tabs" id="tabs">
+
+<section class="hero" id="inicio">
+  <div class="wrap">
+    <div class="hero-txt">
+      <p class="eyebrow">CURADORIA DO DANIEL</p>
+      <h1>Equipamentos escolhidos por quem entende de <em>áudio e eventos.</em></h1>
+      <p class="lead">Aqui você encontra uma seleção de produtos das melhores marcas, com foco em qualidade, reputação dos vendedores e o melhor custo-benefício.</p>
+      <ul class="pills">
+        <li><svg class="ico"><use href="#i-shield"/></svg>Produtos confiáveis</li>
+        <li><svg class="ico"><use href="#i-star"/></svg>Melhores marcas</li>
+        <li><svg class="ico"><use href="#i-link"/></svg>Links para o Mercado Livre</li>
+      </ul>
+      <a class="cta" href="#categorias"><svg class="ico"><use href="#i-cart"/></svg>Explorar categorias</a>
+    </div>
+    <div class="hero-img">
+      <img src="img/daniel-preta.webp" alt="Daniel, responsável pela curadoria">
+      <p class="hello">Olá!<br>Eu sou o Daniel.<br>Seja bem-vindo à<br>minha curadoria!</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="categorias">
+  <div class="wrap">
+    <p class="eyebrow sm">CATEGORIAS</p>
+    <h2>Encontre o que você precisa</h2>
+    <p class="sub">Selecione uma categoria e descubra os melhores produtos para o seu projeto.</p>
+    <div class="cats">
+      <a class="cat" href="#achados" data-cat="mesas-de-som-e-áudio"><div class="cat-img"><svg class="ico"><use href="#i-mixer"/></svg></div><div class="cat-info"><svg class="ico"><use href="#i-mixer"/></svg><b>Mesas de som e áudio</b><svg class="ico go"><use href="#i-arrow"/></svg></div></a>
+      <a class="cat" href="#achados" data-cat="microfones"><div class="cat-img"><img src="img/cat-microfones.webp" alt="" loading="lazy"><svg class="ico"><use href="#i-mic"/></svg></div><div class="cat-info"><svg class="ico"><use href="#i-mic"/></svg><b>Microfones</b><svg class="ico go"><use href="#i-arrow"/></svg></div></a>
+      <a class="cat" href="#achados" data-cat="caixas-de-som-e-retorno"><div class="cat-img"><svg class="ico"><use href="#i-speaker"/></svg></div><div class="cat-info"><svg class="ico"><use href="#i-speaker"/></svg><b>Caixas de som e retorno</b><svg class="ico go"><use href="#i-arrow"/></svg></div></a>
+      <a class="cat" href="#achados" data-cat="transmissão-ao-vivo"><div class="cat-img"><img src="img/cat-transmissao.webp" alt="" loading="lazy"><svg class="ico"><use href="#i-video"/></svg></div><div class="cat-info"><svg class="ico"><use href="#i-video"/></svg><b>Transmissão ao vivo</b><svg class="ico go"><use href="#i-arrow"/></svg></div></a>
+      <a class="cat" href="#achados" data-cat="notebooks"><div class="cat-img"><svg class="ico"><use href="#i-laptop"/></svg></div><div class="cat-info"><svg class="ico"><use href="#i-laptop"/></svg><b>Notebooks</b><svg class="ico go"><use href="#i-arrow"/></svg></div></a>
+      <a class="cat" href="#achados" data-cat="cabos--pedestais-e-acessórios"><div class="cat-img"><svg class="ico"><use href="#i-cable"/></svg></div><div class="cat-info"><svg class="ico"><use href="#i-cable"/></svg><b>Cabos, pedestais e acessórios</b><svg class="ico go"><use href="#i-arrow"/></svg></div></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="achados" style="padding-bottom:0">
+  <div class="wrap">
+    <p class="eyebrow sm">ACHADOS DO DIA</p>
+    <h2>Produtos selecionados para você</h2>
+    <p class="sub">Ordem da lista: qualidade do produto · reputação da loja · menor preço. <span class="stamp">Atualizado em 20/10/2026 às 08:43</span></p>
+  </div>
+</section>
+<nav class="tabsbar" aria-label="Categorias"><div class="tabs" id="tabs">
   <button class="tab" data-cat="todas" aria-pressed="true">Todas</button>
   <button class="tab" data-cat="mesas-de-som-e-áudio" aria-pressed="false">Mesas de som e áudio</button>
   <button class="tab" data-cat="microfones" aria-pressed="false">Microfones</button>
@@ -61,9 +255,9 @@
   <button class="tab" data-cat="notebooks" aria-pressed="false">Notebooks</button>
   <button class="tab" data-cat="cabos--pedestais-e-acessórios" aria-pressed="false">Cabos, pedestais e acessórios</button>
 </div></nav>
-<main>
+<main id="lista">
 <section data-cat="mesas-de-som-e-áudio">
-<h2>Mesas de som e áudio</h2>
+<h3>Mesas de som e áudio</h3>
 <div class="grid">
 <article class="card">
   <div class="img"><span class="off">-21%</span><img src="https://http2.mlstatic.com/D_NQ_NP_920172-MLA99421474798_112025-F.jpg" alt="Interface Audio Roland Gomixer Pro-x" loading="lazy"></div>
@@ -71,18 +265,8 @@
     <div class="title">Interface Audio Roland Gomixer Pro-x</div>
     <div class="old">R$ 1.490,00</div>
     <div class="price">R$ 1.173,87</div>
-    <div class="tags"><span class="tag ok">Loja oficial</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-7014801170" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
-  </div>
-</article>
-<article class="card">
-  <div class="img"><span class="off">-17%</span><img src="https://http2.mlstatic.com/D_NQ_NP_999030-MLA99452711278_112025-F.jpg" alt="Interface Audio Roland Go Live Cast P/ Smartphone C/ Efeitos Branco" loading="lazy"></div>
-  <div class="body">
-    <div class="title">Interface Audio Roland Go Live Cast P/ Smartphone C/ Efeitos Branco</div>
-    <div class="old">R$ 2.241,05</div>
-    <div class="price">R$ 1.855,37</div>
-    <div class="tags"><span class="tag ok">Loja oficial</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-5196708584" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Roland</span><span class="tag ok">Loja oficial</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-7014801170?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
@@ -91,88 +275,98 @@
     <div class="title">Kit Interface Audio Focusrite Scarlett 2i2 Studio 4th Gen Cor Vermelho</div>
     <div class="old">R$ 3.319,99</div>
     <div class="price">R$ 3.153,99</div>
-    <div class="tags"><span class="tag ok">MercadoLíder Gold</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-5265341031" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Focusrite</span><span class="tag ok">MercadoLíder Gold</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-5265341031?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
-  <div class="img"><span class="off">-0%</span><img src="https://http2.mlstatic.com/D_NQ_NP_796553-MLA99522142694_122025-F.jpg" alt="Interface Audio Focusrite Scarlett 16i16 4ª Geração Usb-c Cor Vermelho" loading="lazy"></div>
+  <div class="img"><img src="https://http2.mlstatic.com/D_NQ_NP_796553-MLA99522142694_122025-F.jpg" alt="Interface Audio Focusrite Scarlett 16i16 4ª Geração Usb-c Cor Vermelho" loading="lazy"></div>
   <div class="body">
     <div class="title">Interface Audio Focusrite Scarlett 16i16 4ª Geração Usb-c Cor Vermelho</div>
-    <div class="old">R$ 3.688,00</div>
+    <div class="old" aria-hidden="true">&nbsp;</div>
     <div class="price">R$ 3.688,00</div>
-    <div class="tags"><span class="tag ok">MercadoLíder Gold</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-4856641071" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Focusrite</span><span class="tag ok">MercadoLíder Gold</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-4856641071?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
-  <div class="img"><span class="off">-0%</span><img src="https://http2.mlstatic.com/D_NQ_NP_911411-MLA99937421783_112025-F.jpg" alt="Mesa De Som Analógica Yamaha 6 Canais Bivolt Preto" loading="lazy"></div>
+  <div class="img"><span class="off">-31%</span><img src="https://http2.mlstatic.com/D_NQ_NP_999030-MLA99452711278_112025-F.jpg" alt="Interface Audio Roland Go Live Cast P/ Smartphone C/ Efeitos Branco" loading="lazy"></div>
+  <div class="body">
+    <div class="title">Interface Audio Roland Go Live Cast P/ Smartphone C/ Efeitos Branco</div>
+    <div class="old">R$ 2.185,01</div>
+    <div class="price">R$ 1.507,65</div>
+    <div class="tags"><span class="tag star">Roland</span><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-7734898628?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+  </div>
+</article>
+<article class="card">
+  <div class="img"><img src="https://http2.mlstatic.com/D_NQ_NP_911411-MLA99937421783_112025-F.jpg" alt="Mesa De Som Analógica Yamaha 6 Canais Bivolt Preto" loading="lazy"></div>
   <div class="body">
     <div class="title">Mesa De Som Analógica Yamaha 6 Canais Bivolt Preto</div>
-    <div class="old">R$ 1.650,00</div>
+    <div class="old" aria-hidden="true">&nbsp;</div>
     <div class="price">R$ 1.650,00</div>
-    <div class="tags"><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-3782082305" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Yamaha</span><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-3782082305?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
-  <div class="img"><span class="off">-0%</span><img src="https://http2.mlstatic.com/D_NQ_NP_659175-MLA99854238001_112025-F.jpg" alt="Interface Audio Roland Midi Ua4fx2" loading="lazy"></div>
+  <div class="img"><img src="https://http2.mlstatic.com/D_NQ_NP_659175-MLA99854238001_112025-F.jpg" alt="Interface Audio Roland Midi Ua4fx2" loading="lazy"></div>
   <div class="body">
     <div class="title">Interface Audio Roland Midi Ua4fx2</div>
-    <div class="old">R$ 2.299,00</div>
+    <div class="old" aria-hidden="true">&nbsp;</div>
     <div class="price">R$ 2.299,00</div>
-    <div class="tags"><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-4587391431" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Roland</span><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-4587391431?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
-  <div class="img"><span class="off">-0%</span><img src="https://http2.mlstatic.com/D_NQ_NP_914911-MLA99531888992_122025-F.jpg" alt="Interface Audio Roland Midi Ua4fx2" loading="lazy"></div>
+  <div class="img"><img src="https://http2.mlstatic.com/D_NQ_NP_914911-MLA99531888992_122025-F.jpg" alt="Interface Audio Roland Midi Ua4fx2" loading="lazy"></div>
   <div class="body">
     <div class="title">Interface Audio Roland Midi Ua4fx2</div>
-    <div class="old">R$ 2.299,00</div>
+    <div class="old" aria-hidden="true">&nbsp;</div>
     <div class="price">R$ 2.299,00</div>
-    <div class="tags"><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-6575379074" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Roland</span><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-6575379074?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
-  <div class="img"><span class="off">-0%</span><img src="https://http2.mlstatic.com/D_NQ_NP_956428-MLA99963863079_112025-F.jpg" alt="Mesa Som Yamaha Mg 12xu 12 Canais, Usb E" loading="lazy"></div>
+  <div class="img"><img src="https://http2.mlstatic.com/D_NQ_NP_956428-MLA99963863079_112025-F.jpg" alt="Mesa Som Yamaha Mg 12xu 12 Canais, Usb E" loading="lazy"></div>
   <div class="body">
     <div class="title">Mesa Som Yamaha Mg 12xu 12 Canais, Usb E</div>
-    <div class="old">R$ 2.779,00</div>
+    <div class="old" aria-hidden="true">&nbsp;</div>
     <div class="price">R$ 2.779,00</div>
-    <div class="tags"><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-7124131126" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Yamaha</span><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-7124131126?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
-  <div class="img"><span class="off">-0%</span><img src="https://http2.mlstatic.com/D_NQ_NP_773701-MLA110284853553_042026-F.jpg" alt="Mesa de Som Analógica Yamaha MG16 de 16 Canais com Phantom Power" loading="lazy"></div>
+  <div class="img"><img src="https://http2.mlstatic.com/D_NQ_NP_773701-MLA110284853553_042026-F.jpg" alt="Mesa de Som Analógica Yamaha MG16 de 16 Canais com Phantom Power" loading="lazy"></div>
   <div class="body">
     <div class="title">Mesa de Som Analógica Yamaha MG16 de 16 Canais com Phantom Power</div>
-    <div class="old">R$ 3.999,00</div>
+    <div class="old" aria-hidden="true">&nbsp;</div>
     <div class="price">R$ 3.999,00</div>
-    <div class="tags"><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-7412355926" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Yamaha</span><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-7412355926?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
-  <div class="img"><span class="off">-0%</span><img src="https://http2.mlstatic.com/D_NQ_NP_910181-MLA99954043369_112025-F.jpg" alt="Mesa De Som Mixer Soundcraft Signature 16 Canais Analógica" loading="lazy"></div>
+  <div class="img"><span class="off">-11%</span><img src="https://http2.mlstatic.com/D_NQ_NP_910181-MLA99954043369_112025-F.jpg" alt="Mesa De Som Mixer Soundcraft Signature 16 Canais Analógica" loading="lazy"></div>
   <div class="body">
     <div class="title">Mesa De Som Mixer Soundcraft Signature 16 Canais Analógica</div>
     <div class="old">R$ 5.490,00</div>
-    <div class="price">R$ 5.490,00</div>
-    <div class="tags"><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-6595775294" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="price">R$ 4.886,10</div>
+    <div class="tags"><span class="tag star">Soundcraft</span><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-6595775294?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
-  <div class="img"><span class="off">-0%</span><img src="https://http2.mlstatic.com/D_NQ_NP_863510-MLA96138418131_102025-F.jpg" alt="Interface Audio Usb Focusrite Scarlett 4th Generation 18i20 Cor Vermelho" loading="lazy"></div>
+  <div class="img"><img src="https://http2.mlstatic.com/D_NQ_NP_863510-MLA96138418131_102025-F.jpg" alt="Interface Audio Usb Focusrite Scarlett 4th Generation 18i20 Cor Vermelho" loading="lazy"></div>
   <div class="body">
     <div class="title">Interface Audio Usb Focusrite Scarlett 4th Generation 18i20 Cor Vermelho</div>
-    <div class="old">R$ 6.457,80</div>
+    <div class="old" aria-hidden="true">&nbsp;</div>
     <div class="price">R$ 6.457,80</div>
-    <div class="tags"><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-7125003808" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Focusrite</span><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-7125003808?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
@@ -181,33 +375,43 @@
     <div class="title">Microfone Condensador Usb Interface Audio Samson G-track Pro Preto</div>
     <div class="old">R$ 2.112,50</div>
     <div class="price">R$ 1.901,25</div>
-    <div class="tags"><span class="tag ok">Loja oficial</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-5345466880" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Samson</span><span class="tag ok">Loja oficial</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-5345466880?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 </div>
 </section>
 <section data-cat="microfones">
-<h2>Microfones</h2>
+<h3>Microfones</h3>
 <div class="grid">
 <article class="card">
-  <div class="img"><span class="off">-0%</span><img src="https://http2.mlstatic.com/D_NQ_NP_707217-MLA99548343838_122025-F.jpg" alt="Microfone Lapela Sem Fio Blx Shure Blx14/cvl" loading="lazy"></div>
+  <div class="img"><img src="https://http2.mlstatic.com/D_NQ_NP_955018-MLA95224317168_102025-F.jpg" alt="Suporte Duplo Microfone Lapela 3 Unidades Shure Rpm40stcb Preto" loading="lazy"></div>
   <div class="body">
-    <div class="title">Microfone Lapela Sem Fio Blx Shure Blx14/cvl</div>
-    <div class="old">R$ 3.133,65</div>
-    <div class="price">R$ 3.133,65</div>
-    <div class="tags"><span class="tag ok">Loja oficial</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-5537182244" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="title">Suporte Duplo Microfone Lapela 3 Unidades Shure Rpm40stcb Preto</div>
+    <div class="old" aria-hidden="true">&nbsp;</div>
+    <div class="price">R$ 364,45</div>
+    <div class="tags"><span class="tag star">Shure</span><span class="tag ok">Loja oficial</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-5829857768?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
-  <div class="img"><span class="off">-0%</span><img src="https://http2.mlstatic.com/D_NQ_NP_892066-MLU73466140758_122023-F.jpg" alt="Microfone Lapela Subminiatura Twinplex Shure Tl47" loading="lazy"></div>
+  <div class="img"><img src="https://http2.mlstatic.com/D_NQ_NP_707217-MLA99548343838_122025-F.jpg" alt="Microfone Lapela Sem Fio Blx Shure Blx14/cvl" loading="lazy"></div>
+  <div class="body">
+    <div class="title">Microfone Lapela Sem Fio Blx Shure Blx14/cvl</div>
+    <div class="old" aria-hidden="true">&nbsp;</div>
+    <div class="price">R$ 3.133,65</div>
+    <div class="tags"><span class="tag star">Shure</span><span class="tag ok">Loja oficial</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-5537182244?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+  </div>
+</article>
+<article class="card">
+  <div class="img"><img src="https://http2.mlstatic.com/D_NQ_NP_892066-MLU73466140758_122023-F.jpg" alt="Microfone Lapela Subminiatura Twinplex Shure Tl47" loading="lazy"></div>
   <div class="body">
     <div class="title">Microfone Lapela Subminiatura Twinplex Shure Tl47</div>
-    <div class="old">R$ 4.900,00</div>
+    <div class="old" aria-hidden="true">&nbsp;</div>
     <div class="price">R$ 4.900,00</div>
-    <div class="tags"><span class="tag ok">MercadoLíder Gold</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-5107833073" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Shure</span><span class="tag ok">MercadoLíder Gold</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-5107833073?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
@@ -216,28 +420,28 @@
     <div class="title">Microfone USB Gamer Fifine Ampligame A8 Rosa Cardioide para Streaming</div>
     <div class="old">R$ 293,99</div>
     <div class="price">R$ 249,99</div>
-    <div class="tags"><span class="tag ok">Loja oficial</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-3527168115" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Fifine</span><span class="tag ok">Loja oficial</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-3527168115?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
-  <div class="img"><span class="off">-0%</span><img src="https://http2.mlstatic.com/D_NQ_NP_861755-MLB31564907540_072019-F.jpg" alt="Kit Microfone Lapela Sem Fio + Microfone De Mão Sem Fio Cor Preto" loading="lazy"></div>
+  <div class="img"><img src="https://http2.mlstatic.com/D_NQ_NP_861755-MLB31564907540_072019-F.jpg" alt="Kit Microfone Lapela Sem Fio + Microfone De Mão Sem Fio Cor Preto" loading="lazy"></div>
   <div class="body">
     <div class="title">Kit Microfone Lapela Sem Fio + Microfone De Mão Sem Fio Cor Preto</div>
-    <div class="old">R$ 2.568,08</div>
+    <div class="old" aria-hidden="true">&nbsp;</div>
     <div class="price">R$ 2.568,08</div>
-    <div class="tags"><span class="tag ok">Loja oficial</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-3572836881" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Boya</span><span class="tag ok">Loja oficial</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-3572836881?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
-  <div class="img"><span class="off">-0%</span><img src="https://http2.mlstatic.com/D_NQ_NP_624097-MLB74227333423_012024-F.jpg" alt="Microfone Lapela Lvm-01mx Lyco Cor Preto" loading="lazy"></div>
+  <div class="img"><img src="https://http2.mlstatic.com/D_NQ_NP_624097-MLB74227333423_012024-F.jpg" alt="Microfone Lapela Lvm-01mx Lyco Cor Preto" loading="lazy"></div>
   <div class="body">
     <div class="title">Microfone Lapela Lvm-01mx Lyco Cor Preto</div>
-    <div class="old">R$ 199,00</div>
+    <div class="old" aria-hidden="true">&nbsp;</div>
     <div class="price">R$ 199,00</div>
-    <div class="tags"><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-6230763434" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Lyco</span><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-6230763434?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
@@ -246,33 +450,33 @@
     <div class="title">Microfone Lapela Sem Fio Saramonic Blink500 ProXB2 Duplo Preto</div>
     <div class="old">R$ 2.000,00</div>
     <div class="price">R$ 1.188,00</div>
-    <div class="tags"><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-5292229801" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Saramonic</span><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-5292229801?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
-  <div class="img"><span class="off">-0%</span><img src="https://http2.mlstatic.com/D_NQ_NP_922617-MLA80331617647_102024-F.jpg" alt="Microfone Lapela Boya BY-M1V2 Sem Fio Para Câmera" loading="lazy"></div>
+  <div class="img"><img src="https://http2.mlstatic.com/D_NQ_NP_922617-MLA80331617647_102024-F.jpg" alt="Microfone Lapela Boya BY-M1V2 Sem Fio Para Câmera" loading="lazy"></div>
   <div class="body">
     <div class="title">Microfone Lapela Boya BY-M1V2 Sem Fio Para Câmera</div>
-    <div class="old">R$ 1.299,00</div>
+    <div class="old" aria-hidden="true">&nbsp;</div>
     <div class="price">R$ 1.299,00</div>
-    <div class="tags"><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-4521953437" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Boya</span><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-4521953437?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 </div>
 </section>
 <section data-cat="caixas-de-som-e-retorno">
-<h2>Caixas de som e retorno</h2>
+<h3>Caixas de som e retorno</h3>
 <div class="grid">
 <article class="card">
-  <div class="img"><span class="off">-0%</span><img src="https://mla-s2-p.mlstatic.com/928922-MLA32805186260_112019-F.jpg" alt="Monitor de palco preto QSC K12" loading="lazy"></div>
+  <div class="img"><img src="https://mla-s2-p.mlstatic.com/928922-MLA32805186260_112019-F.jpg" alt="Monitor de palco preto QSC K12" loading="lazy"></div>
   <div class="body">
     <div class="title">Monitor de palco preto QSC K12</div>
-    <div class="old">R$ 9.479,90</div>
+    <div class="old" aria-hidden="true">&nbsp;</div>
     <div class="price">R$ 9.479,90</div>
-    <div class="tags"><span class="tag ok">MercadoLíder Platinum</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-7680562458" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">QSC</span><span class="tag ok">MercadoLíder Platinum</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-7680562458?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
@@ -281,48 +485,48 @@
     <div class="title">Caixa Som 8 Portátil Ativa Mackie Thump Go 200w Bluetooth Preta</div>
     <div class="old">R$ 7.522,36</div>
     <div class="price">R$ 4.595,36</div>
-    <div class="tags"><span class="tag ok">MercadoLíder Gold</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-7608481618" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Mackie</span><span class="tag ok">MercadoLíder Gold</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-7608481618?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
-  <div class="img"><span class="off">-0%</span><img src="https://http2.mlstatic.com/D_NQ_NP_643657-MLA96101841447_102025-F.jpg" alt="Monitor de palco preto Yamaha DBR10" loading="lazy"></div>
+  <div class="img"><img src="https://http2.mlstatic.com/D_NQ_NP_643657-MLA96101841447_102025-F.jpg" alt="Monitor de palco preto Yamaha DBR10" loading="lazy"></div>
   <div class="body">
     <div class="title">Monitor de palco preto Yamaha DBR10</div>
-    <div class="old">R$ 3.799,00</div>
+    <div class="old" aria-hidden="true">&nbsp;</div>
     <div class="price">R$ 3.799,00</div>
-    <div class="tags"><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-5407803899" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Yamaha</span><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-5407803899?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
-  <div class="img"><span class="off">-0%</span><img src="https://http2.mlstatic.com/D_NQ_NP_867395-MLA95634202130_102025-F.jpg" alt="Monitor de palco Yamaha DBR12 preto" loading="lazy"></div>
+  <div class="img"><img src="https://http2.mlstatic.com/D_NQ_NP_867395-MLA95634202130_102025-F.jpg" alt="Monitor de palco Yamaha DBR12 preto" loading="lazy"></div>
   <div class="body">
     <div class="title">Monitor de palco Yamaha DBR12 preto</div>
-    <div class="old">R$ 4.005,02</div>
+    <div class="old" aria-hidden="true">&nbsp;</div>
     <div class="price">R$ 4.005,02</div>
-    <div class="tags"><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-5321926595" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Yamaha</span><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-5321926595?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
-  <div class="img"><span class="off">-0%</span><img src="https://http2.mlstatic.com/D_NQ_NP_737759-MLA95695150082_102025-F.jpg" alt="Monitor de palco Yamaha DBR15 preto" loading="lazy"></div>
+  <div class="img"><img src="https://http2.mlstatic.com/D_NQ_NP_737759-MLA95695150082_102025-F.jpg" alt="Monitor de palco Yamaha DBR15 preto" loading="lazy"></div>
   <div class="body">
     <div class="title">Monitor de palco Yamaha DBR15 preto</div>
-    <div class="old">R$ 5.499,00</div>
+    <div class="old" aria-hidden="true">&nbsp;</div>
     <div class="price">R$ 5.499,00</div>
-    <div class="tags"><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-7828520702" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Yamaha</span><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-7828520702?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
-  <div class="img"><span class="off">-0%</span><img src="https://http2.mlstatic.com/D_NQ_NP_784995-MLA95576044111_102025-F.jpg" alt="Monitor de palco Yamaha DBR15 preto" loading="lazy"></div>
+  <div class="img"><img src="https://http2.mlstatic.com/D_NQ_NP_784995-MLA95576044111_102025-F.jpg" alt="Monitor de palco Yamaha DBR15 preto" loading="lazy"></div>
   <div class="body">
     <div class="title">Monitor de palco Yamaha DBR15 preto</div>
-    <div class="old">R$ 5.599,00</div>
+    <div class="old" aria-hidden="true">&nbsp;</div>
     <div class="price">R$ 5.599,00</div>
-    <div class="tags"><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-5407943403" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Yamaha</span><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-5407943403?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
@@ -331,43 +535,43 @@
     <div class="title">Caixa Som Staner Upper 515A com Bluetooth 300W Woofer Ativa Profissional</div>
     <div class="old">R$ 3.499,99</div>
     <div class="price">R$ 2.197,27</div>
-    <div class="tags"><span class="tag ok">Loja oficial</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-5346628589" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Staner</span><span class="tag ok">Loja oficial</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-5346628589?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
-  <div class="img"><span class="off">-0%</span><img src="https://http2.mlstatic.com/D_NQ_NP_619217-MLA96220411254_102025-F.jpg" alt="Caixa Som Ativa Bk712a Staner 12 Black Series 450w Bt" loading="lazy"></div>
+  <div class="img"><img src="https://http2.mlstatic.com/D_NQ_NP_619217-MLA96220411254_102025-F.jpg" alt="Caixa Som Ativa Bk712a Staner 12 Black Series 450w Bt" loading="lazy"></div>
   <div class="body">
     <div class="title">Caixa Som Ativa Bk712a Staner 12 Black Series 450w Bt</div>
-    <div class="old">R$ 3.530,00</div>
+    <div class="old" aria-hidden="true">&nbsp;</div>
     <div class="price">R$ 3.530,00</div>
-    <div class="tags"><span class="tag ok">Loja oficial</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-5152115385" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Staner</span><span class="tag ok">Loja oficial</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-5152115385?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
-  <div class="img"><span class="off">-0%</span><img src="https://http2.mlstatic.com/D_NQ_NP_811142-MLA107824854669_022026-F.jpg" alt="Caixa Som Ativa Staner Bluetooth Ps1201 150w C/ Pedestal" loading="lazy"></div>
+  <div class="img"><img src="https://http2.mlstatic.com/D_NQ_NP_811142-MLA107824854669_022026-F.jpg" alt="Caixa Som Ativa Staner Bluetooth Ps1201 150w C/ Pedestal" loading="lazy"></div>
   <div class="body">
     <div class="title">Caixa Som Ativa Staner Bluetooth Ps1201 150w C/ Pedestal</div>
-    <div class="old">R$ 1.892,25</div>
+    <div class="old" aria-hidden="true">&nbsp;</div>
     <div class="price">R$ 1.892,25</div>
-    <div class="tags"><span class="tag ok">MercadoLíder Platinum</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-6660299276" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Staner</span><span class="tag ok">MercadoLíder Platinum</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-6660299276?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 </div>
 </section>
 <section data-cat="transmissão-ao-vivo">
-<h2>Transmissão ao vivo</h2>
+<h3>Transmissão ao vivo</h3>
 <div class="grid">
 <article class="card">
-  <div class="img"><span class="off">-0%</span><img src="https://http2.mlstatic.com/D_NQ_NP_901196-MLA100025716329_122025-F.jpg" alt="Switcher Atem Sdi Blackmagic Live Production (transmissão)" loading="lazy"></div>
+  <div class="img"><img src="https://http2.mlstatic.com/D_NQ_NP_901196-MLA100025716329_122025-F.jpg" alt="Switcher Atem Sdi Blackmagic Live Production (transmissão)" loading="lazy"></div>
   <div class="body">
     <div class="title">Switcher Atem Sdi Blackmagic Live Production (transmissão)</div>
-    <div class="old">R$ 3.299,00</div>
+    <div class="old" aria-hidden="true">&nbsp;</div>
     <div class="price">R$ 3.299,00</div>
-    <div class="tags"><span class="tag ok">MercadoLíder Platinum</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-5368129980" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Blackmagic Design</span><span class="tag ok">MercadoLíder Platinum</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-5368129980?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
@@ -376,78 +580,78 @@
     <div class="title">Hollyland Venusliv Air 4k Live Streaming Camera Preto</div>
     <div class="old">R$ 4.989,00</div>
     <div class="price">R$ 3.741,75</div>
-    <div class="tags"><span class="tag ok">MercadoLíder Gold</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-4943596513" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Hollyland</span><span class="tag ok">MercadoLíder Gold</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-4943596513?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
-  <div class="img"><span class="off">-0%</span><img src="https://http2.mlstatic.com/D_NQ_NP_776656-MLA99967098353_112025-F.jpg" alt="Insta360 Link 2c - Webcam 4k com foco automático e inteligência artificial" loading="lazy"></div>
+  <div class="img"><img src="https://http2.mlstatic.com/D_NQ_NP_776656-MLA99967098353_112025-F.jpg" alt="Insta360 Link 2c - Webcam 4k com foco automático e inteligência artificial" loading="lazy"></div>
   <div class="body">
     <div class="title">Insta360 Link 2c - Webcam 4k com foco automático e inteligência artificial</div>
-    <div class="old">R$ 1.599,00</div>
+    <div class="old" aria-hidden="true">&nbsp;</div>
     <div class="price">R$ 1.599,00</div>
-    <div class="tags"><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-4739256593" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Insta360</span><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-4739256593?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
-  <div class="img"><span class="off">-0%</span><img src="https://http2.mlstatic.com/D_NQ_NP_914463-MLA85008654712_052025-F.jpg" alt="Câmera Insta360 Link 2 - Ia Powered Webcam 4k Cor Preto" loading="lazy"></div>
+  <div class="img"><img src="https://http2.mlstatic.com/D_NQ_NP_914463-MLA85008654712_052025-F.jpg" alt="Câmera Insta360 Link 2 - Ia Powered Webcam 4k Cor Preto" loading="lazy"></div>
   <div class="body">
     <div class="title">Câmera Insta360 Link 2 - Ia Powered Webcam 4k Cor Preto</div>
-    <div class="old">R$ 1.999,99</div>
+    <div class="old" aria-hidden="true">&nbsp;</div>
     <div class="price">R$ 1.999,99</div>
-    <div class="tags"><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-7665663382" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Insta360</span><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-7665663382?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
-  <div class="img"><span class="off">-0%</span><img src="https://http2.mlstatic.com/D_NQ_NP_967188-MLA99570842490_122025-F.jpg" alt="Placa Captura De Vídeo Blackmagic Decklink Sdi 4k" loading="lazy"></div>
+  <div class="img"><img src="https://http2.mlstatic.com/D_NQ_NP_967188-MLA99570842490_122025-F.jpg" alt="Placa Captura De Vídeo Blackmagic Decklink Sdi 4k" loading="lazy"></div>
   <div class="body">
     <div class="title">Placa Captura De Vídeo Blackmagic Decklink Sdi 4k</div>
-    <div class="old">R$ 2.998,00</div>
+    <div class="old" aria-hidden="true">&nbsp;</div>
     <div class="price">R$ 2.998,00</div>
-    <div class="tags"><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-6002981364" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Blackmagic Design</span><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-6002981364?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
-  <div class="img"><span class="off">-0%</span><img src="https://http2.mlstatic.com/D_NQ_NP_669132-MLA106762598926_022026-F.jpg" alt="Switcher HDMI Blackmagic Design Atem Mini Pro ISO Preto para Live Streaming 1080p" loading="lazy"></div>
+  <div class="img"><img src="https://http2.mlstatic.com/D_NQ_NP_669132-MLA106762598926_022026-F.jpg" alt="Switcher HDMI Blackmagic Design Atem Mini Pro ISO Preto para Live Streaming 1080p" loading="lazy"></div>
   <div class="body">
     <div class="title">Switcher HDMI Blackmagic Design Atem Mini Pro ISO Preto para Live Streaming 1080p</div>
-    <div class="old">R$ 4.187,00</div>
+    <div class="old" aria-hidden="true">&nbsp;</div>
     <div class="price">R$ 4.187,00</div>
-    <div class="tags"><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-5407303083" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Blackmagic Design</span><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-5407303083?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
-  <div class="img"><span class="off">-0%</span><img src="https://http2.mlstatic.com/D_NQ_NP_655847-MLA95239214869_102025-F.jpg" alt="Switcher Blackmagic Design Atem Mini Extreme Live Streaming" loading="lazy"></div>
+  <div class="img"><img src="https://http2.mlstatic.com/D_NQ_NP_655847-MLA95239214869_102025-F.jpg" alt="Switcher Blackmagic Design Atem Mini Extreme Live Streaming" loading="lazy"></div>
   <div class="body">
     <div class="title">Switcher Blackmagic Design Atem Mini Extreme Live Streaming</div>
-    <div class="old">R$ 12.499,00</div>
+    <div class="old" aria-hidden="true">&nbsp;</div>
     <div class="price">R$ 12.499,00</div>
-    <div class="tags"><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-4612158049" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Blackmagic Design</span><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-4612158049?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
-  <div class="img"><span class="off">-0%</span><img src="https://http2.mlstatic.com/D_NQ_NP_733565-MLA99949880731_112025-F.jpg" alt="Placa De Captura De Vídeo Hdmi Via Usb/usb-c Ugreen 40189" loading="lazy"></div>
+  <div class="img"><img src="https://http2.mlstatic.com/D_NQ_NP_733565-MLA99949880731_112025-F.jpg" alt="Placa De Captura De Vídeo Hdmi Via Usb/usb-c Ugreen 40189" loading="lazy"></div>
   <div class="body">
     <div class="title">Placa De Captura De Vídeo Hdmi Via Usb/usb-c Ugreen 40189</div>
-    <div class="old">R$ 223,90</div>
+    <div class="old" aria-hidden="true">&nbsp;</div>
     <div class="price">R$ 223,90</div>
-    <div class="tags"><span class="tag ok">Loja oficial</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-4944666118" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Ugreen</span><span class="tag ok">Loja oficial</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-4944666118?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
-  <div class="img"><span class="off">-0%</span><img src="https://http2.mlstatic.com/D_NQ_NP_626221-MLA92026026391_092025-F.jpg" alt="Camera Ugreen Webcam 4k Fhd 8 Mp Microfone Foco Automático Prateado" loading="lazy"></div>
+  <div class="img"><img src="https://http2.mlstatic.com/D_NQ_NP_626221-MLA92026026391_092025-F.jpg" alt="Camera Ugreen Webcam 4k Fhd 8 Mp Microfone Foco Automático Prateado" loading="lazy"></div>
   <div class="body">
     <div class="title">Camera Ugreen Webcam 4k Fhd 8 Mp Microfone Foco Automático Prateado</div>
-    <div class="old">R$ 241,76</div>
-    <div class="price">R$ 241,76</div>
-    <div class="tags"><span class="tag ok">Loja oficial</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-5188794159" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="old" aria-hidden="true">&nbsp;</div>
+    <div class="price">R$ 243,90</div>
+    <div class="tags"><span class="tag star">Ugreen</span><span class="tag ok">Loja oficial</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-5188794159?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
@@ -456,53 +660,53 @@
     <div class="title">Webcam 4K Obsbot Tiny 2 com Controle de Voz e Rastreamento AI</div>
     <div class="old">R$ 3.800,00</div>
     <div class="price">R$ 2.016,00</div>
-    <div class="tags"><span class="tag ok">MercadoLíder Platinum</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-4012376585" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Obsbot</span><span class="tag ok">MercadoLíder Platinum</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-4012376585?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 </div>
 </section>
 <section data-cat="notebooks">
-<h2>Notebooks</h2>
+<h3>Notebooks</h3>
 <div class="grid">
 <article class="card">
-  <div class="img"><span class="off">-0%</span><img src="https://http2.mlstatic.com/D_NQ_NP_697816-MLA117490522445_092026-F.jpg" alt="Notebook Acer Aspire 5 A515-45-r478 Amd Ryzen 5 5500u 16gb" loading="lazy"></div>
+  <div class="img"><img src="https://http2.mlstatic.com/D_NQ_NP_697816-MLA117490522445_092026-F.jpg" alt="Notebook Acer Aspire 5 A515-45-r478 Amd Ryzen 5 5500u 16gb" loading="lazy"></div>
   <div class="body">
     <div class="title">Notebook Acer Aspire 5 A515-45-r478 Amd Ryzen 5 5500u 16gb</div>
-    <div class="old">R$ 4.399,00</div>
-    <div class="price">R$ 4.399,00</div>
-    <div class="tags"><span class="tag ok">Loja oficial</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-7626338724" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="old" aria-hidden="true">&nbsp;</div>
+    <div class="price">R$ 4.499,00</div>
+    <div class="tags"><span class="tag star">Acer</span><span class="tag ok">Loja oficial</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-7626338724?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
-  <div class="img"><span class="off">-0%</span><img src="https://http2.mlstatic.com/D_NQ_NP_828353-MLA111259382233_052026-F.jpg" alt="Notebook Lenovo 14 Ideapad Slim 5 Ryzen Ai 5+ Tablet Lenovo Cinza" loading="lazy"></div>
+  <div class="img"><img src="https://http2.mlstatic.com/D_NQ_NP_828353-MLA111259382233_052026-F.jpg" alt="Notebook Lenovo 14 Ideapad Slim 5 Ryzen Ai 5+ Tablet Lenovo Cinza" loading="lazy"></div>
   <div class="body">
     <div class="title">Notebook Lenovo 14 Ideapad Slim 5 Ryzen Ai 5+ Tablet Lenovo Cinza</div>
-    <div class="old">R$ 8.113,90</div>
-    <div class="price">R$ 8.113,90</div>
-    <div class="tags"><span class="tag ok">Loja oficial</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-4917737995" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="old" aria-hidden="true">&nbsp;</div>
+    <div class="price">R$ 8.925,29</div>
+    <div class="tags"><span class="tag star">Lenovo</span><span class="tag ok">Loja oficial</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-4917737995?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
-  <div class="img"><span class="off">-17%</span><img src="https://http2.mlstatic.com/D_NQ_NP_723222-MLA113978822811_062026-F.jpg" alt="Notebook Acer Aspire 5 Ryzen 5 5500u 16gb Ram 1tb Ssd Nvme Prateado" loading="lazy"></div>
+  <div class="img"><span class="off">-15%</span><img src="https://http2.mlstatic.com/D_NQ_NP_723222-MLA113978822811_062026-F.jpg" alt="Notebook Acer Aspire 5 Ryzen 5 5500u 16gb Ram 1tb Ssd Nvme Prateado" loading="lazy"></div>
   <div class="body">
     <div class="title">Notebook Acer Aspire 5 Ryzen 5 5500u 16gb Ram 1tb Ssd Nvme Prateado</div>
-    <div class="old">R$ 6.999,00</div>
-    <div class="price">R$ 5.822,07</div>
-    <div class="tags"><span class="tag ok">MercadoLíder Platinum</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-7658629878" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="old">R$ 6.399,00</div>
+    <div class="price">R$ 5.411,65</div>
+    <div class="tags"><span class="tag star">Acer</span><span class="tag ok">MercadoLíder Platinum</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-7656564806?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
-  <div class="img"><span class="off">-0%</span><img src="https://http2.mlstatic.com/D_NQ_NP_736531-MLU73742316719_012024-F.jpg" alt="Notebook Asus Vivobook Ryzen 5 Ram 16gb Ddr5 512gb Ssd Nvme Notebook cor preta" loading="lazy"></div>
+  <div class="img"><img src="https://http2.mlstatic.com/D_NQ_NP_736531-MLU73742316719_012024-F.jpg" alt="Notebook Asus Vivobook Ryzen 5 Ram 16gb Ddr5 512gb Ssd Nvme Notebook cor preta" loading="lazy"></div>
   <div class="body">
     <div class="title">Notebook Asus Vivobook Ryzen 5 Ram 16gb Ddr5 512gb Ssd Nvme Notebook cor preta</div>
-    <div class="old">R$ 3.737,61</div>
-    <div class="price">R$ 3.737,61</div>
-    <div class="tags"><span class="tag ok">MercadoLíder Gold</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-5276068769" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="old" aria-hidden="true">&nbsp;</div>
+    <div class="price">R$ 3.708,35</div>
+    <div class="tags"><span class="tag star">Asus</span><span class="tag ok">MercadoLíder Gold</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-5276068769?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
@@ -511,93 +715,63 @@
     <div class="title">Notebook Acer Aspire 5 Ryzen 5 5500u 16gb Ram 256gb Nvme Prateado</div>
     <div class="old">R$ 5.699,00</div>
     <div class="price">R$ 4.959,99</div>
-    <div class="tags"><span class="tag ok">MercadoLíder Gold</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-7657467016" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Acer</span><span class="tag ok">MercadoLíder Gold</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-7657467016?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
-  <div class="img"><span class="off">-10%</span><img src="https://http2.mlstatic.com/D_NQ_NP_803609-MLA106544629386_022026-F.jpg" alt="Notebook Lenovo Ideapad 1i celeron 4gb 128gb W11" loading="lazy"></div>
+  <div class="img"><img src="https://http2.mlstatic.com/D_NQ_NP_803609-MLA106544629386_022026-F.jpg" alt="Notebook Lenovo Ideapad 1i celeron 4gb 128gb W11" loading="lazy"></div>
   <div class="body">
     <div class="title">Notebook Lenovo Ideapad 1i celeron 4gb 128gb W11</div>
-    <div class="old">R$ 2.336,00</div>
-    <div class="price">R$ 2.102,40</div>
-    <div class="tags"><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-7740603322" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
-  </div>
-</article>
-<article class="card">
-  <div class="img"><span class="off">-0%</span><img src="https://http2.mlstatic.com/D_NQ_NP_690743-MLA99460184344_112025-F.jpg" alt="Notebook Lenovo Thinkpad E14 I5 16gb 512gb Ssd W11 Pro" loading="lazy"></div>
-  <div class="body">
-    <div class="title">Notebook Lenovo Thinkpad E14 I5 16gb 512gb Ssd W11 Pro</div>
-    <div class="old">R$ 5.759,00</div>
-    <div class="price">R$ 5.759,00</div>
-    <div class="tags"><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-5695151450" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
-  </div>
-</article>
-<article class="card">
-  <div class="img"><span class="off">-0%</span><img src="https://http2.mlstatic.com/D_NQ_NP_758485-MLA99509650210_112025-F.jpg" alt="Notebook Lenovo Thinkpad E14 Amd Ryzen 5 16gb 512gb W11 Pro" loading="lazy"></div>
-  <div class="body">
-    <div class="title">Notebook Lenovo Thinkpad E14 Amd Ryzen 5 16gb 512gb W11 Pro</div>
-    <div class="old">R$ 7.129,00</div>
-    <div class="price">R$ 7.129,00</div>
-    <div class="tags"><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-7626752514" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="old" aria-hidden="true">&nbsp;</div>
+    <div class="price">R$ 2.190,00</div>
+    <div class="tags"><span class="tag star">Lenovo</span><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-7784535822?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 </div>
 </section>
 <section data-cat="cabos--pedestais-e-acessórios">
-<h2>Cabos, pedestais e acessórios</h2>
+<h3>Cabos, pedestais e acessórios</h3>
 <div class="grid">
-<article class="card">
-  <div class="img"><span class="off">-0%</span><img src="https://http2.mlstatic.com/D_NQ_NP_892126-MLA95733877420_102025-F.jpg" alt="Pedestal Microfone Base Redonda Quik-Release On-Stage Preto" loading="lazy"></div>
-  <div class="body">
-    <div class="title">Pedestal Microfone Base Redonda Quik-Release On-Stage Preto</div>
-    <div class="old">R$ 364,99</div>
-    <div class="price">R$ 364,99</div>
-    <div class="tags"><span class="tag ok">Loja oficial</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-3717550620" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
-  </div>
-</article>
 <article class="card">
   <div class="img"><span class="off">-6%</span><img src="https://http2.mlstatic.com/D_NQ_NP_853335-MLA95521393774_102025-F.jpg" alt="Pedestal Microfone Hercules Jr Ms300 B Cor Preto" loading="lazy"></div>
   <div class="body">
     <div class="title">Pedestal Microfone Hercules Jr Ms300 B Cor Preto</div>
     <div class="old">R$ 298,03</div>
     <div class="price">R$ 281,22</div>
-    <div class="tags"><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-5291550193" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Hércules</span><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-5291550193?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
-  <div class="img"><span class="off">-0%</span><img src="https://http2.mlstatic.com/D_NQ_NP_931652-MLU71764534381_092023-F.jpg" alt="Pedestal Microfone Hercules Ms120b Mini Girafa Base Redonda Preto" loading="lazy"></div>
+  <div class="img"><img src="https://http2.mlstatic.com/D_NQ_NP_931652-MLU71764534381_092023-F.jpg" alt="Pedestal Microfone Hercules Ms120b Mini Girafa Base Redonda Preto" loading="lazy"></div>
   <div class="body">
     <div class="title">Pedestal Microfone Hercules Ms120b Mini Girafa Base Redonda Preto</div>
-    <div class="old">R$ 432,90</div>
+    <div class="old" aria-hidden="true">&nbsp;</div>
     <div class="price">R$ 432,90</div>
-    <div class="tags"><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-5360104039" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Hércules</span><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-5360104039?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
-  <div class="img"><span class="off">-0%</span><img src="https://http2.mlstatic.com/D_NQ_NP_939128-MLA99504411028_112025-F.jpg" alt="Pedestal Microfone Hercules Mini Girafa Ms540b" loading="lazy"></div>
+  <div class="img"><img src="https://http2.mlstatic.com/D_NQ_NP_939128-MLA99504411028_112025-F.jpg" alt="Pedestal Microfone Hercules Mini Girafa Ms540b" loading="lazy"></div>
   <div class="body">
     <div class="title">Pedestal Microfone Hercules Mini Girafa Ms540b</div>
-    <div class="old">R$ 539,90</div>
+    <div class="old" aria-hidden="true">&nbsp;</div>
     <div class="price">R$ 539,90</div>
-    <div class="tags"><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-7691052958" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Hercules Pa</span><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-7691052958?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
-  <div class="img"><span class="off">-0%</span><img src="https://http2.mlstatic.com/D_NQ_NP_758494-MLA99443769910_112025-F.jpg" alt="Tripé para câmera Manfrotto MT190X3" loading="lazy"></div>
+  <div class="img"><img src="https://http2.mlstatic.com/D_NQ_NP_758494-MLA99443769910_112025-F.jpg" alt="Tripé para câmera Manfrotto MT190X3" loading="lazy"></div>
   <div class="body">
     <div class="title">Tripé para câmera Manfrotto MT190X3</div>
-    <div class="old">R$ 999,00</div>
+    <div class="old" aria-hidden="true">&nbsp;</div>
     <div class="price">R$ 999,00</div>
-    <div class="tags"><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-4512989905" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Manfrotto</span><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-4512989905?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
@@ -606,8 +780,8 @@
     <div class="title">Direct Box Passivo Santo Angelo Dbp1 prata</div>
     <div class="old">R$ 299,00</div>
     <div class="price">R$ 184,00</div>
-    <div class="tags"><span class="tag ok">Loja oficial</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-5454184758" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Santo Angelo</span><span class="tag ok">Loja oficial</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-5454184758?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
@@ -616,8 +790,8 @@
     <div class="title">Direct Box Passivo Behringer Di400p Ultra</div>
     <div class="old">R$ 380,00</div>
     <div class="price">R$ 280,14</div>
-    <div class="tags"><span class="tag ok">Loja oficial</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-4126676158" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Behringer</span><span class="tag ok">Loja oficial</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-4126676158?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
@@ -626,8 +800,8 @@
     <div class="title">Direct Box Ativo Profissional Behringer Ultra Di100</div>
     <div class="old">R$ 469,00</div>
     <div class="price">R$ 413,00</div>
-    <div class="tags"><span class="tag ok">Loja oficial</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-6999960790" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Behringer</span><span class="tag ok">Loja oficial</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-6999960790?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
@@ -636,18 +810,18 @@
     <div class="title">Direct Box Behringer Di-100 Ativo</div>
     <div class="old">R$ 474,63</div>
     <div class="price">R$ 416,00</div>
-    <div class="tags"><span class="tag ok">Loja oficial</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-4796345810" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Behringer</span><span class="tag ok">Loja oficial</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-4796345810?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
-  <div class="img"><span class="off">-0%</span><img src="https://http2.mlstatic.com/D_NQ_NP_827286-MLA99979720657_112025-F.jpg" alt="Pedestal Microfone Santo Angelo Psa60 Mesa Cor Preto" loading="lazy"></div>
+  <div class="img"><img src="https://http2.mlstatic.com/D_NQ_NP_827286-MLA99979720657_112025-F.jpg" alt="Pedestal Microfone Santo Angelo Psa60 Mesa Cor Preto" loading="lazy"></div>
   <div class="body">
     <div class="title">Pedestal Microfone Santo Angelo Psa60 Mesa Cor Preto</div>
-    <div class="old">R$ 94,00</div>
+    <div class="old" aria-hidden="true">&nbsp;</div>
     <div class="price">R$ 94,00</div>
-    <div class="tags"><span class="tag ok">MercadoLíder Gold</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-4671003412" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Santo Angelo</span><span class="tag ok">MercadoLíder Gold</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-4671003412?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
@@ -656,36 +830,116 @@
     <div class="title">Direct Box Duplo Passivo Santo Angelo Ninja</div>
     <div class="old">R$ 349,90</div>
     <div class="price">R$ 269,00</div>
-    <div class="tags"><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-4398105357" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Santo Angelo</span><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-4398105357?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 <article class="card">
-  <div class="img"><span class="off">-0%</span><img src="https://http2.mlstatic.com/D_NQ_NP_934899-MLA99983748297_112025-F.jpg" alt="Direct Box Behringer Ultra Di100 Di-100" loading="lazy"></div>
+  <div class="img"><img src="https://http2.mlstatic.com/D_NQ_NP_934899-MLA99983748297_112025-F.jpg" alt="Direct Box Behringer Ultra Di100 Di-100" loading="lazy"></div>
   <div class="body">
     <div class="title">Direct Box Behringer Ultra Di100 Di-100</div>
-    <div class="old">R$ 510,00</div>
+    <div class="old" aria-hidden="true">&nbsp;</div>
     <div class="price">R$ 510,00</div>
-    <div class="tags"><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
-    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-5183717375" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+    <div class="tags"><span class="tag star">Behringer</span><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-5183717375?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
+  </div>
+</article>
+<article class="card">
+  <div class="img"><img src="https://http2.mlstatic.com/D_NQ_NP_768273-MLU73784397406_012024-F.jpg" alt="Behringer Di-100 - Direct Box + Cabo XLR" loading="lazy"></div>
+  <div class="body">
+    <div class="title">Behringer Di-100 - Direct Box + Cabo XLR</div>
+    <div class="old" aria-hidden="true">&nbsp;</div>
+    <div class="price">R$ 749,00</div>
+    <div class="tags"><span class="tag star">Behringer</span><span class="tag ok">Boa reputação</span><span class="tag">Frete grátis</span></div>
+    <a class="btn" href="https://produto.mercadolivre.com.br/MLB-7685845838?matt_tool=22937192&amp;matt_word=especial" target="_blank" rel="sponsored nofollow noopener">Ver no Mercado Livre</a>
   </div>
 </article>
 </div>
 </section>
+<p class="nada" id="nada">Nenhum produto encontrado para essa busca.</p>
 </main>
+
+<section class="contato" id="contato">
+  <div class="wrap">
+    <div class="c-txt">
+      <b>Dúvidas ou sugestões?</b>
+      <p>Fique à vontade para entrar em contato. Será um prazer te ajudar!</p>
+      <a class="ghost" href="https://wa.me/5522999691642?text=Ol%C3%A1%21%20Vim%20pelo%20site%20Curadoria%20do%20Daniel." target="_blank" rel="noopener"><svg class="ico"><use href="#i-whats"/></svg>Chamar no WhatsApp</a>
+    </div>
+    <div class="c-itens">
+      <div><svg class="ico"><use href="#i-chat"/></svg>Atendimento personalizado</div>
+      <div><svg class="ico"><use href="#i-shield"/></svg>Indicação de equipamentos reais</div>
+      <div><svg class="ico"><use href="#i-rocket"/></svg>Sempre com foco no seu projeto</div>
+    </div>
+    <div class="assina">Daniel</div>
+  </div>
+</section>
+
 <footer>
-  Como participante do programa de afiliados do Mercado Livre, este site pode receber comissão por compras feitas pelos links, sem custo adicional para você. Preços, estoque e condições são do Mercado Livre e podem mudar a qualquer momento; confira sempre na página do produto antes de comprar.
+  <div class="rodape">
+    <a class="brand" href="#inicio" aria-label="Curadoria do Daniel">
+      <svg><use href="#i-logo"/></svg>
+      <div><b>CURADORIA DO</b><span>DANIEL</span></div>
+    </a>
+    <p>Equipamentos de áudio, transmissão e tecnologia para igrejas e eventos.</p>
+  </div>
+  <p class="aviso">Como participante do programa de afiliados do Mercado Livre, este site pode receber comissão por compras feitas pelos links, sem custo adicional para você. Preços, estoque e condições são do Mercado Livre e podem mudar a qualquer momento; confira sempre na página do produto antes de comprar.</p>
 </footer>
+
 <script>
   var tabs = document.getElementById('tabs');
+  var secoes = document.querySelectorAll('main section');
+  var nada = document.getElementById('nada');
+  var q = document.getElementById('q');
+
+  function mostrar(cat){
+    tabs.querySelectorAll('.tab').forEach(function(t){ t.setAttribute('aria-pressed', t.getAttribute('data-cat')===cat ? 'true':'false'); });
+    secoes.forEach(function(s){ s.hidden = !(cat==='todas' || s.getAttribute('data-cat')===cat); });
+    nada.style.display = 'none';
+  }
   tabs.addEventListener('click', function(e){
     var b = e.target.closest('.tab'); if(!b) return;
-    var cat = b.getAttribute('data-cat');
-    tabs.querySelectorAll('.tab').forEach(function(t){ t.setAttribute('aria-pressed', t===b ? 'true':'false'); });
-    document.querySelectorAll('main section').forEach(function(s){
-      s.hidden = !(cat==='todas' || s.getAttribute('data-cat')===cat);
+    q.value = ''; filtrar();
+    mostrar(b.getAttribute('data-cat'));
+  });
+  document.querySelectorAll('.cat').forEach(function(a){
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      q.value = ''; filtrar();
+      mostrar(a.getAttribute('data-cat'));
+      document.getElementById('achados').scrollIntoView({behavior:'smooth'});
     });
   });
+
+  var caixa = document.getElementById('busca');
+  document.getElementById('abrir-busca').addEventListener('click', function(){
+    caixa.classList.toggle('on');
+    if(caixa.classList.contains('on')) q.focus();
+  });
+  var rolou = false;
+  function filtrar(){
+    var t = q.value.trim().toLowerCase();
+    if(!t){
+      rolou = false;
+      document.querySelectorAll('.card').forEach(function(c){ c.hidden = false; });
+      var ativa = tabs.querySelector('.tab[aria-pressed="true"]');
+      mostrar(ativa ? ativa.getAttribute('data-cat') : 'todas');
+      return;
+    }
+    var achou = 0;
+    secoes.forEach(function(s){
+      var n = 0;
+      s.querySelectorAll('.card').forEach(function(c){
+        var ok = c.textContent.toLowerCase().indexOf(t) !== -1;
+        c.hidden = !ok; if(ok) n++;
+      });
+      s.hidden = n === 0; achou += n;
+    });
+    tabs.querySelectorAll('.tab').forEach(function(x){ x.setAttribute('aria-pressed','false'); });
+    nada.style.display = achou ? 'none' : 'block';
+    if(!rolou){ rolou = true; document.getElementById('achados').scrollIntoView({behavior:'smooth'}); }
+  }
+  q.addEventListener('input', filtrar);
 </script>
 </body>
 </html>
