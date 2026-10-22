@@ -1,51 +1,258 @@
 {
   "titulo": "Curadoria do Daniel",
-  "subtitulo": "Equipamentos de som, transmissão e notebooks para eventos e igrejas: só produtos bem avaliados, de lojas qualificadas, com o menor preço do Mercado Livre. Atualizado todos os dias.",
+  "subtitulo": "Equipamentos de som, transmissão e notebooks para eventos e igrejas: marcas de confiança, lojas qualificadas e o menor preço do Mercado Livre. Atualizado todos os dias.",
   "afiliado": {
     "matt_tool": "",
     "matt_word": ""
   },
   "filtros": {
-    "desconto_minimo": 8,
-    "niveis_aceitos": ["platinum", "gold"],
+    "qualidade": "marcas",
+    "incluir_outras_marcas": false,
+    "niveis_aceitos": [
+      "platinum",
+      "gold",
+      "verde"
+    ],
     "aceitar_loja_oficial": true,
+    "exigir_promocao": false,
+    "desconto_minimo": 8,
     "itens_por_categoria": 12,
     "resultados_por_busca": 50,
-    "exigir_avaliacao": true,
-    "avaliacao_minima": 4.3,
-    "avaliacoes_minimas": 10,
-    "candidatos_por_categoria": 30
+    "produtos_analisados_por_categoria": 100,
+    "ofertas_examinadas": 30,
+    "candidatos_por_categoria": 60,
+    "rodizio": {
+      "ativo": true,
+      "itens_fixos": 2,
+      "paginas_busca": 3
+    }
   },
   "categorias": [
     {
       "nome": "Mesas de som e áudio",
       "preco_min": 400,
-      "buscas": ["mesa de som digital", "mesa de som analogica 16 canais", "interface de audio usb", "mixer de audio"]
+      "buscas": [
+        "mesa de som digital",
+        "mesa de som analogica 16 canais",
+        "interface de audio usb",
+        "mixer de audio"
+      ],
+      "marcas_premium": [
+        "Yamaha",
+        "Allen & Heath",
+        "Soundcraft",
+        "Midas",
+        "Focusrite",
+        "PreSonus",
+        "Roland",
+        "Steinberg",
+        "RME"
+      ],
+      "marcas_confiaveis": [
+        "Behringer",
+        "Mackie",
+        "Samson",
+        "Alto Professional",
+        "Tascam",
+        "Zoom",
+        "M-Audio",
+        "Staner",
+        "Leacs",
+        "Revo"
+      ],
+      "icone": "mixer"
     },
     {
       "nome": "Microfones",
       "preco_min": 80,
-      "buscas": ["microfone sem fio profissional", "microfone dinamico profissional", "microfone lapela sem fio", "microfone condensador"]
+      "buscas": [
+        "microfone sem fio profissional",
+        "microfone dinamico profissional",
+        "microfone lapela sem fio",
+        "microfone condensador",
+        "microfone de lapela",
+        "microfone usb para streaming",
+        "microfone de mao sem fio uhf"
+      ],
+      "marcas_premium": [
+        "Shure",
+        "Sennheiser",
+        "Audio-Technica",
+        "AKG",
+        "Electro-Voice",
+        "Rode",
+        "Neumann",
+        "Beyerdynamic"
+      ],
+      "marcas_confiaveis": [
+        "Behringer",
+        "Samson",
+        "Blue",
+        "Boya",
+        "Superlux",
+        "Staner",
+        "Leacs",
+        "Lyco",
+        "Maono",
+        "Fifine",
+        "Saramonic",
+        "Takstar",
+        "HyperX",
+        "Movo",
+        "JTS",
+        "Revo"
+      ],
+      "icone": "mic",
+      "imagem": "cat-microfones.webp"
     },
     {
       "nome": "Caixas de som e retorno",
       "preco_min": 300,
-      "buscas": ["caixa de som ativa profissional", "caixa de som para igreja", "monitor de palco", "fone in ear monitor"]
+      "buscas": [
+        "caixa de som ativa profissional",
+        "caixa de som para igreja",
+        "monitor de palco",
+        "fone in ear monitor"
+      ],
+      "marcas_premium": [
+        "JBL",
+        "Yamaha",
+        "Bose",
+        "Electro-Voice",
+        "QSC",
+        "RCF",
+        "Mackie",
+        "Shure",
+        "Sennheiser"
+      ],
+      "marcas_confiaveis": [
+        "Behringer",
+        "Alto Professional",
+        "Samson",
+        "Staner",
+        "Leacs",
+        "Wharfedale Pro",
+        "Revo"
+      ],
+      "icone": "speaker"
     },
     {
       "nome": "Transmissão ao vivo",
       "preco_min": 150,
-      "buscas": ["placa de captura hdmi", "webcam full hd 1080p", "camera para live streaming", "switcher de video hdmi"]
+      "buscas": [
+        "placa de captura hdmi",
+        "webcam full hd 1080p",
+        "camera para live streaming",
+        "switcher de video hdmi",
+        "webcam 4k",
+        "capturadora de video usb",
+        "mesa de corte de video"
+      ],
+      "marcas_premium": [
+        "Elgato",
+        "Blackmagic Design",
+        "Logitech",
+        "AVerMedia",
+        "Sony",
+        "Canon",
+        "Panasonic",
+        "Rode",
+        "Hollyland",
+        "Insta360",
+        "Razer"
+      ],
+      "marcas_confiaveis": [
+        "Godox",
+        "Neewer",
+        "Ulanzi",
+        "Ugreen",
+        "Obsbot",
+        "HyperX",
+        "Fifine",
+        "Saramonic",
+        "Revo"
+      ],
+      "icone": "video",
+      "imagem": "cat-transmissao.webp"
     },
     {
       "nome": "Notebooks",
       "preco_min": 1800,
-      "buscas": ["notebook i5 16gb ssd", "notebook ryzen 5 16gb", "notebook para edicao de video"]
+      "buscas": [
+        "notebook i5 16gb ssd",
+        "notebook ryzen 5 16gb",
+        "notebook para edicao de video",
+        "notebook i7 16gb",
+        "notebook ryzen 7",
+        "notebook dell",
+        "notebook lenovo ideapad"
+      ],
+      "marcas_premium": [
+        "Apple",
+        "Dell",
+        "Lenovo",
+        "ASUS",
+        "HP",
+        "Acer",
+        "Samsung",
+        "LG",
+        "MSI",
+        "Microsoft"
+      ],
+      "marcas_confiaveis": [
+        "Positivo",
+        "Vaio",
+        "Gigabyte",
+        "Avell",
+        "Multilaser"
+      ],
+      "produtos_analisados": 250,
+      "icone": "laptop"
     },
     {
       "nome": "Cabos, pedestais e acessórios",
       "preco_min": 40,
-      "buscas": ["pedestal de microfone", "cabo xlr", "direct box", "tripe para camera e iluminacao led"]
+      "buscas": [
+        "pedestal de microfone",
+        "cabo xlr",
+        "direct box",
+        "tripe para camera e iluminacao led"
+      ],
+      "marcas_premium": [
+        "Neutrik",
+        "Hosa",
+        "K&M",
+        "On-Stage",
+        "Hercules",
+        "Manfrotto",
+        "Rode"
+      ],
+      "marcas_confiaveis": [
+        "Santo Angelo",
+        "Staner",
+        "Leacs",
+        "Samson",
+        "Behringer",
+        "Ulanzi",
+        "Neewer",
+        "Godox",
+        "Revo"
+      ],
+      "icone": "cable"
     }
-  ]
+  ],
+  "site": {
+    "marca_linha1": "CURADORIA DO",
+    "marca_linha2": "DANIEL",
+    "hero_chamada": "Equipamentos escolhidos por quem entende de",
+    "hero_destaque": "áudio e eventos.",
+    "hero_texto": "Aqui você encontra uma seleção de produtos das melhores marcas, com foco em qualidade, reputação dos vendedores e o melhor custo-benefício.",
+    "assinatura": "Daniel",
+    "rodape": "Equipamentos de áudio, transmissão e tecnologia para igrejas e eventos.",
+    "foto": "daniel-bancada.webp"
+  },
+  "perfil_ml": "https://www.mercadolivre.com.br/social/bomi1092351?matt_word=especial&matt_tool=22937192",
+  "contato_url": "https://wa.me/5522999691642?text=Ol%C3%A1%21%20Vim%20pelo%20site%20Curadoria%20do%20Daniel.",
+  "contato_rotulo": "Chamar no WhatsApp",
+  "url_site": "https://achadosbortone.github.io/curadoria-do-daniel/"
 }
