@@ -311,6 +311,23 @@ def nivel_marca(marca, nome, cat, f):
     return 1 if f.get("incluir_outras_marcas", False) else 0
 
 
+def _norm(t):
+    t = unicodedata.normalize("NFD", str(t or "").lower())
+    return "".join(c for c in t if unicodedata.category(c) != "Mn")
+
+
+def titulo_permitido(nome, cat, f):
+    """Barra produtos fora do assunto: palavras proibidas (globais + da categoria) e, se houver, palavras exigidas."""
+    n = _norm(nome)
+    for p in list(f.get("excluir_palavras") or []) + list(cat.get("excluir") or []):
+        if _norm(p) in n:
+            return False
+    exigir = cat.get("exigir_palavras") or []
+    if exigir and not any(_norm(p) in n for p in exigir):
+        return False
+    return True
+
+
 def link_do_item(item_id):
     """MLB6958053892 -> https://produto.mercadolivre.com.br/MLB-6958053892"""
     m = re.match(r"^([A-Z]{3})(\d+)$", str(item_id))
@@ -439,12 +456,15 @@ def coletar_catalogo(cfg, token):
         if modo_q == "marcas":
             elegiveis = []
             for pid, pr in produtos.items():
+                if not titulo_permitido(pr["nome"], cat, f):
+                    motivo("fora do assunto (palavra proibida/exigida)")
+                    continue
                 pr["qualidade"] = nivel_marca(pr["marca"], pr["nome"], cat, f)
                 if pr["qualidade"] > 0:
                     elegiveis.append(pid)
             elegiveis.sort(key=lambda pid: -produtos[pid]["qualidade"])
         else:
-            elegiveis = list(produtos)
+            elegiveis = [p for p, pr in produtos.items() if titulo_permitido(pr["nome"], cat, f)]
         ids = elegiveis[: cat.get("produtos_analisados", f.get("produtos_analisados_por_categoria", 60))]
         MOTIVOS.clear()
 
